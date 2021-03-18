@@ -1,0 +1,17 @@
+.btn {
+  padding: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.btn.danger {
+  background-color: tomato;
+}
+.btn.warning {
+  background-color: yellowgreen;
+}
+.btn.default {
+  background-color: #eee;
+}
