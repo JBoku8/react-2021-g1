@@ -1,13 +1,13 @@
-import Welcome from "./components/welcome";
+import TodoHome from "./pages/todo/todo-home";
+// import Home from "./pages/home/home";
+// import Welcome from "./components/welcome";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="container">
-      <div className="row">
-        <Welcome title="Lecture 2" startNumber={100} />
-      </div>
+      <TodoHome />
     </div>
   );
 }
