@@ -8,20 +8,22 @@ function TodoHome(props) {
   const [todoList, setTodoList] = useState(TodoListArray);
 
   const onTodoChange = (todo) => {
-    if (todo.completed) {
-      const newList = todoList.filter((f) => f.id !== todo.id);
-      setTodoList(newList);
-      // removal
-    } else {
-      const newTodo = {
-        ...todo,
-        completed: !todo.completed,
-      };
+    if (!todo.completed) {
+      const index = todoList.findIndex((el) => el.id === todo.id);
 
-      const newList = todoList.filter((f) => f.id !== todo.id);
-      newList.push(newTodo);
-      // change status
-      setTodoList(newList);
+      const newState = [
+        ...todoList.slice(0, index),
+        {
+          ...todo,
+          completed: !todo.completed,
+        },
+        ...todoList.slice(index + 1),
+      ];
+
+      setTodoList(newState);
+    } else {
+      const newState = todoList.filter((el) => el.id !== todo.id);
+      setTodoList(newState);
     }
   };
 
