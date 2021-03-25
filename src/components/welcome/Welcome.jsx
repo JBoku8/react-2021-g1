@@ -23,7 +23,7 @@ const Welcome = ({ title, startNumber }) => {
   };
 
   return (
-    <div>
+    <div className="row">
       <h1 className="title" style={styles}>
         {title}
       </h1>
