@@ -22,8 +22,8 @@ function TodoHome(props) {
 
       setTodoList(newState);
     } else {
-      const newState = todoList.filter((el) => el.id !== todo.id);
-      setTodoList(newState);
+      // const newState = todoList.filter((el) => el.id !== todo.id);
+      // setTodoList(newState);
     }
   };
 

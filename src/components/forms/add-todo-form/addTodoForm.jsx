@@ -41,7 +41,7 @@ function AddTodoForm({ onTodoAdd }) {
           id="completed"
           value="completed"
           onChange={(event) => {
-            setCompleted(event.target.value);
+            setCompleted(event.target.checked);
           }}
         />
         <label className="form-check-label" htmlFor="completed">
