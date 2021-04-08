@@ -11,10 +11,10 @@ import './App.css';
 
 function App() {
   const [page, setPage] = useState({
-    todoHome: false,
-    counterHome: true,
+    todoHome: true,
+    counterHome: false,
   });
-  const [currentPage, setCurrentPage] = useState('counterHome');
+  const [currentPage, setCurrentPage] = useState('todoHome');
 
   const onPageChange = (pageKey) => {
     const updateActivePage = { ...page };

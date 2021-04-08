@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import { TodoProvider } from '../../../providers/TodoProvider';
 
-function AddTodoForm({ onTodoAdd }) {
-  const [title, setTitle] = useState("");
-  const [completed, setCompleted] = useState("");
+function AddTodoForm(props) {
+  const { onTodoAdd } = useContext(TodoProvider);
+  const [title, setTitle] = useState('');
+  const [completed, setCompleted] = useState('');
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -14,7 +16,7 @@ function AddTodoForm({ onTodoAdd }) {
 
     onTodoAdd(newTodo);
     setCompleted(false);
-    setTitle("");
+    setTitle('');
   };
 
   return (
