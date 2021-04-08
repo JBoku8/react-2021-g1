@@ -1,8 +1,8 @@
-import { useState } from "react";
-import AddTodoForm from "../../components/forms/add-todo-form";
-import TodoList from "../../components/list/todo-list";
+import { useState } from 'react';
+import AddTodoForm from '../../components/forms/add-todo-form';
+import TodoList from '../../components/list/todo-list';
 
-import TodoListArray from "../../data/todo-list";
+import TodoListArray from '../../data/todo-list';
 
 function TodoHome(props) {
   const [todoList, setTodoList] = useState(TodoListArray);
@@ -37,9 +37,11 @@ function TodoHome(props) {
   return (
     <div className="row">
       <h1>Todo</h1>
+
       <div className="col-6">
         <AddTodoForm onTodoAdd={onTodoAdd} />
       </div>
+
       <div className="col-6">
         <TodoList data={todoList} onTodoChange={onTodoChange} />
       </div>
