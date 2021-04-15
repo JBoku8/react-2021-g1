@@ -1,13 +1,34 @@
-import PropTypes from "prop-types";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-import "./theme.css";
+import css from './theme.module.css';
 
-function Theme({ children, page }) {
-  return <div className={`theme-container ${page}`}>{children}</div>;
+function Theme({ children }) {
+  const { pathname } = useLocation();
+  const [themeColor, setThemeColor] = useState('');
+
+  useEffect(() => {
+    switch (pathname) {
+      case '/todos':
+        setThemeColor(css.todoHome);
+        break;
+      case '/counter':
+        setThemeColor(css.counterHome);
+        break;
+      default:
+        setThemeColor(css.home);
+    }
+  }, [pathname, setThemeColor]);
+
+  return (
+    <div className={classNames('theme-container', themeColor)}>{children}</div>
+  );
 }
 
 Theme.propTypes = {
-  page: PropTypes.string.isRequired,
+  page: PropTypes.string,
 };
 
 export default Theme;

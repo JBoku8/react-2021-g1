@@ -1,26 +1,37 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = ({ onPageChange, pages }) => {
+const Navigation = (props) => {
   return (
     <header className="header pt-4">
       <h2 className="text-muted">Header</h2>
       <nav>
         <ul className="nav nav-tabs">
           <li className="nav-item">
-            <button
-              className={`nav-link ${pages.todoHome ? "active" : ""}`}
-              onClick={() => onPageChange("todoHome")}
-            >
-              Todo Home
-            </button>
+            <NavLink to="/" className="nav-link" activeClassName="active" exact>
+              Home
+            </NavLink>
           </li>
           <li className="nav-item">
-            <button
-              className={`nav-link ${pages.counterHome ? "active" : ""}`}
-              onClick={() => onPageChange("counterHome")}
-            >
+            <NavLink to="/todos" className="nav-link" activeClassName="active">
+              Todo Home
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/counter"
+              className="nav-link"
+              activeClassName="active">
               Counter Home
-            </button>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/profile"
+              className="nav-link"
+              activeClassName="active">
+              Profile
+            </NavLink>
           </li>
         </ul>
       </nav>
@@ -29,8 +40,8 @@ const Navigation = ({ onPageChange, pages }) => {
 };
 
 Navigation.propTypes = {
-  onPageChange: PropTypes.func.isRequired,
-  pages: PropTypes.object.isRequired,
+  onPageChange: PropTypes.func,
+  pages: PropTypes.object,
 };
 
 export default Navigation;
