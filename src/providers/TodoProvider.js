@@ -10,16 +10,13 @@ export const TodoProvider = React.createContext(null);
 function TodoProviderComponent({ children }) {
   const [todoList, setTodoList] = useState([]);
 
-  // useEffect(() => {
-  //   API_SERVICE.getTodoList({ callback: setTodoList, limit: 30 });
-  // }, []);
+  const loadTodoData = async () => {
+    const data = await API_SERVICE.getTodoListAsync({ limit: 5, start: 20 });
+    setTodoList(data);
+  };
 
   useEffect(() => {
-    // IIFE
-    (async () => {
-      const data = await API_SERVICE.getTodoListAsync({ limit: 5, start: 20 });
-      setTodoList(data);
-    })();
+    loadTodoData();
   }, []);
 
   const onTodoChange = (todo) => {

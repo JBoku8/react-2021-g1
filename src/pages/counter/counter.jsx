@@ -1,26 +1,27 @@
-import React from "react";
+import React from 'react';
 
 class Counter extends React.Component {
   state = {
-    title: "Loading...",
-    prevTitle: "",
+    title: 'Loading...',
+    prevTitle: '',
     count: 0,
   };
 
   componentDidMount() {
-    setTimeout(() => {
+    this.timerId = setTimeout(() => {
       // AJAX call imitation
       this.setState({
         ...this.state,
         prevTitle: document.title,
-        title: "Counter Page",
+        title: 'Counter Page',
       });
-      document.title = "Counter Page";
+      document.title = 'Counter Page';
     }, 2000);
   }
 
   componentWillUnmount() {
     document.title = this.state.prevTitle;
+    clearTimeout(this.timerId);
   }
 
   onPlus = () => {
@@ -33,7 +34,7 @@ class Counter extends React.Component {
   };
 
   onReset = () => {
-    throw new SyntaxError("Reset Exception");
+    throw new SyntaxError('Reset Exception');
     // this.setState({
     //   ...this.state,
     //   count: 0,
