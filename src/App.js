@@ -4,6 +4,7 @@ import Counter from './pages/counter/counter';
 import TodoHome from './pages/todo/todo-home';
 import Home from './pages/home/home';
 import Profile from './pages/profile';
+import AuthPage from './pages/auth';
 
 import Theme from './components/theme';
 import Navigation from './components/navigation/navigation';
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/counter">
             <Counter />
+          </Route>
+          <Route path="/auth">
+            <AuthPage />
           </Route>
           <Route path="/profile">
             <Profile title="Profile Page" />

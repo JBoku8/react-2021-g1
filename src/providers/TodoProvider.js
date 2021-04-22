@@ -12,7 +12,9 @@ function TodoProviderComponent({ children }) {
 
   const loadTodoData = async () => {
     const data = await API_SERVICE.getTodoListAsync({ limit: 5, start: 20 });
-    setTodoList(data);
+    if (data) {
+      setTodoList(data);
+    }
   };
 
   useEffect(() => {

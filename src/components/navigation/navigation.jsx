@@ -33,6 +33,12 @@ const Navigation = (props) => {
               Profile
             </NavLink>
           </li>
+
+          <li className="nav-item">
+            <NavLink to="/auth" className="nav-link" activeClassName="active">
+              Auth
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
