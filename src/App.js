@@ -1,39 +1,58 @@
+import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Counter from './pages/counter/counter';
-import TodoHome from './pages/todo/todo-home';
 import Home from './pages/home/home';
-import Profile from './pages/profile';
-import AuthPage from './pages/auth';
 
 import Theme from './components/theme';
 import Navigation from './components/navigation/navigation';
-// import Welcome from "./components/welcome";
 
 import './App.css';
+
+// Code Splitting
+const Counter = React.lazy(() => import('./pages/counter/counter'));
+const TodoHome = React.lazy(() => import('./pages/todo/todo-home'));
+const AuthPage = React.lazy(() => import('./pages/auth'));
+const Profile = React.lazy(() => import('./pages/profile'));
+const FakerBooks = React.lazy(() => import('./pages/faker-books'));
+
+const Loader = () => {
+  return (
+    <div className="row">
+      <h2 className="text-center text-success">Page is Loading...</h2>
+    </div>
+  );
+};
 
 function App() {
   return (
     <div className="container">
       <Navigation />
       <Theme>
-        <Switch>
-          <Route path="/todos">
-            <TodoHome />
-          </Route>
-          <Route path="/counter">
-            <Counter />
-          </Route>
-          <Route path="/auth">
-            <AuthPage />
-          </Route>
-          <Route path="/profile">
-            <Profile title="Profile Page" />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <Route path="/todos">
+              <TodoHome />
+            </Route>
+            <Route path="/counter">
+              <Counter />
+            </Route>
+            <Route path="/auth">
+              <AuthPage />
+            </Route>
+            <Route path="/profile">
+              <Profile title="Profile Page" />
+            </Route>
+
+            <Route path="/faker-books">
+              <FakerBooks />
+            </Route>
+
+            {/* Direct Load */}
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Suspense>
       </Theme>
     </div>
   );
