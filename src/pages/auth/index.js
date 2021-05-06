@@ -34,6 +34,7 @@ function AuthPage(props) {
           <Route path="/auth/sign-in">
             <SignInPage />
           </Route>
+
           <Route path="/auth/sign-up">
             <SignUpPage />
           </Route>
