@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { authSelector } from '../../redux/selectors/auth-selectors';
 
-const Navigation = (props) => {
+const Navigation = () => {
+  const authed = useSelector(authSelector);
+
   return (
     <header className="header pt-4">
       <h2 className="text-muted">Header</h2>
@@ -12,11 +16,13 @@ const Navigation = (props) => {
               Home
             </NavLink>
           </li>
+
           <li className="nav-item">
             <NavLink to="/todos" className="nav-link" activeClassName="active">
               Todo Home
             </NavLink>
           </li>
+
           <li className="nav-item">
             <NavLink
               to="/counter"
@@ -25,14 +31,17 @@ const Navigation = (props) => {
               Counter Home
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink
-              to="/profile"
-              className="nav-link"
-              activeClassName="active">
-              Profile
-            </NavLink>
-          </li>
+
+          {!!authed ? (
+            <li className="nav-item">
+              <NavLink
+                to="/profile"
+                className="nav-link"
+                activeClassName="active">
+                Profile
+              </NavLink>
+            </li>
+          ) : null}
 
           <li className="nav-item">
             <NavLink
@@ -44,10 +53,21 @@ const Navigation = (props) => {
           </li>
 
           <li className="nav-item">
-            <NavLink to="/auth" className="nav-link" activeClassName="active">
-              Auth
+            <NavLink
+              to="/redux-counter"
+              className="nav-link"
+              activeClassName="active">
+              Redux Counter
             </NavLink>
           </li>
+
+          {!authed ? (
+            <li className="nav-item">
+              <NavLink to="/auth" className="nav-link" activeClassName="active">
+                Auth
+              </NavLink>
+            </li>
+          ) : null}
         </ul>
       </nav>
     </header>
