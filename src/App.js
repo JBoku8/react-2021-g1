@@ -7,6 +7,7 @@ import Theme from './components/theme';
 import Navigation from './components/navigation/navigation';
 
 import './App.css';
+import ReduxCounter from './pages/redux-counter';
 
 // Code Splitting
 const Counter = React.lazy(() => import('./pages/counter/counter'));
@@ -45,6 +46,10 @@ function App() {
 
             <Route path="/faker-books">
               <FakerBooks />
+            </Route>
+
+            <Route path="/redux-counter">
+              <ReduxCounter />
             </Route>
 
             {/* Direct Load */}
