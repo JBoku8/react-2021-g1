@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Home(props) {
+function Home() {
   const [value, setValue] = useState('');
 
   return (
@@ -8,6 +8,7 @@ function Home(props) {
       <div className="col-6">
         <button
           className="btn btn-primary"
+          type="button"
           onClick={() => {
             setValue(Math.random().toString());
           }}

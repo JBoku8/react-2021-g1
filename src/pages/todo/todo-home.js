@@ -3,7 +3,7 @@ import TodoList from '../../components/list/todo-list';
 
 import TodoProviderComponent from '../../providers/TodoProvider';
 
-function TodoHome(props) {
+function TodoHome() {
   return (
     <TodoProviderComponent>
       <div className="row">

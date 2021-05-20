@@ -8,5 +8,7 @@ export const getFakerBooks = async ({ quantity = 1 }) => {
     return response.data.data;
   } catch (error) {
     console.trace(error);
+    return undefined;
   }
 };
+export default {};

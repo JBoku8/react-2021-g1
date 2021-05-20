@@ -11,7 +11,10 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
-    if (this.state.errorInfo) {
+    const { error, errorInfo } = this.state;
+
+    const { children } = this.props;
+    if (errorInfo) {
       // Error path
       return (
         <div className="container">
@@ -20,15 +23,15 @@ class ErrorBoundary extends React.Component {
             <a href="/">Home</a>
           </h4>
           <details style={{ whiteSpace: 'pre-wrap' }}>
-            {this.state.error && this.state.error.toString()}
+            {error && error.toString()}
             <br />
-            {this.state.errorInfo.componentStack}
+            {errorInfo.componentStack}
           </details>
         </div>
       );
     }
     // Normally, just render children
-    return this.props.children;
+    return children;
   }
 }
 

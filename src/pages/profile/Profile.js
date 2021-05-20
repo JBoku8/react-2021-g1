@@ -14,10 +14,11 @@ function Profile(props) {
     history.replace('/');
   };
 
+  const { title } = props;
   return (
     <div className={classNames('profile row mt-4')}>
-      <h3>{props.title}</h3>
-      <button className="btn btn-primary" onClick={onLogOut}>
+      <h3>{title}</h3>
+      <button className="btn btn-primary" onClick={onLogOut} type="button">
         Log Out
       </button>
     </div>

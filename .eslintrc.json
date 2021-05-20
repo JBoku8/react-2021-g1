@@ -39,6 +39,9 @@
         "extensions": [".js", ".jsx"]
       }
     ],
-    "react/display-name": 1
+    "react/display-name": 1,
+    "react/state-in-constructor": "off",
+    "react/prop-types": "off",
+    "react/jsx-closing-bracket-location": 1
   }
 }

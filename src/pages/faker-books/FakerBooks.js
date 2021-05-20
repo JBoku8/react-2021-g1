@@ -55,7 +55,7 @@ function debounce(func, timeout = 300) {
   };
 }
 
-function FakerBooks(props) {
+function FakerBooks() {
   const [state, dispatch] = useReducer(bookReducer, initialState);
 
   const loadBooks = async () => {
@@ -83,12 +83,13 @@ function FakerBooks(props) {
     }
   });
 
+  const { books } = state;
   return (
     <div className="row">
       <div className="col-12">
         <h2>
           Faker Books -
-          {state.books.length}
+          {books.length}
         </h2>
 
         <input

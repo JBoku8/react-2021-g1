@@ -6,7 +6,7 @@ import SignInPage from './sign-in';
 import SignUpPage from './sign-up';
 import { withNoAuth } from '../../hoc';
 
-function AuthPage(props) {
+function AuthPage() {
   const location = useLocation();
 
   return (
