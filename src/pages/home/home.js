@@ -10,7 +10,8 @@ function Home(props) {
           className="btn btn-primary"
           onClick={() => {
             setValue(Math.random().toString());
-          }}>
+          }}
+        >
           Re Render Home component
         </button>
         <h1>{value}</h1>

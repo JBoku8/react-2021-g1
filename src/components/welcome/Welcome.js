@@ -1,12 +1,12 @@
-import { useState } from "react";
-import Example from "../example";
-import { Button } from "../ui";
+import { useState } from 'react';
+import Example from '../example';
+import { Button } from '../ui';
 
 const Welcome = ({ title, startNumber }) => {
   const [counter, setCounter] = useState(startNumber);
   const styles = {
-    color: "red",
-    textAlign: "center",
+    color: 'red',
+    textAlign: 'center',
   };
 
   // newValue !== oldValue

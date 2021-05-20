@@ -25,12 +25,10 @@ class Counter extends React.Component {
   }
 
   onPlus = () => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        count: prevState.count + 1,
-      };
-    });
+    this.setState((prevState) => ({
+      ...prevState,
+      count: prevState.count + 1,
+    }));
   };
 
   onReset = () => {
@@ -42,12 +40,10 @@ class Counter extends React.Component {
   };
 
   onMinus = () => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        count: prevState.count - 1,
-      };
-    });
+    this.setState((prevState) => ({
+      ...prevState,
+      count: prevState.count - 1,
+    }));
   };
 
   render() {
@@ -56,7 +52,10 @@ class Counter extends React.Component {
     return (
       <div className="row mt-3">
         <h2>
-          {title} - {count}
+          {title}
+          {' '}
+          -
+          {count}
         </h2>
         <div className="col-2 d-flex justify-content-between">
           <button className="btn btn-primary btn-lg" onClick={this.onPlus}>

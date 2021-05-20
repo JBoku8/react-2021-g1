@@ -11,6 +11,7 @@ export class API_SERVICE {
       console.trace(err);
     }
   }
+
   static getTodoList({ start = 0, limit = 10, callback }) {
     fetch(
       `${process.env.REACT_APP_API_URL}/todos?_start=${start}&_limit=${limit}&`,

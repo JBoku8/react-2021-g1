@@ -27,17 +27,19 @@ const Navigation = () => {
             <NavLink
               to="/counter"
               className="nav-link"
-              activeClassName="active">
+              activeClassName="active"
+            >
               Counter Home
             </NavLink>
           </li>
 
-          {!!authed ? (
+          {authed ? (
             <li className="nav-item">
               <NavLink
                 to="/profile"
                 className="nav-link"
-                activeClassName="active">
+                activeClassName="active"
+              >
                 Profile
               </NavLink>
             </li>
@@ -47,7 +49,8 @@ const Navigation = () => {
             <NavLink
               to="/faker-books"
               className="nav-link"
-              activeClassName="active">
+              activeClassName="active"
+            >
               Faker Books
             </NavLink>
           </li>
@@ -56,7 +59,8 @@ const Navigation = () => {
             <NavLink
               to="/redux-counter"
               className="nav-link"
-              activeClassName="active">
+              activeClassName="active"
+            >
               Redux Counter
             </NavLink>
           </li>

@@ -16,13 +16,11 @@ const AuthPage = React.lazy(() => import('./pages/auth'));
 const Profile = React.lazy(() => import('./pages/profile'));
 const FakerBooks = React.lazy(() => import('./pages/faker-books'));
 
-const Loader = () => {
-  return (
-    <div className="row">
-      <h2 className="text-center text-success">Page is Loading...</h2>
-    </div>
-  );
-};
+const Loader = () => (
+  <div className="row">
+    <h2 className="text-center text-success">Page is Loading...</h2>
+  </div>
+);
 
 function App() {
   return (
