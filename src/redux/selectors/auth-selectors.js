@@ -1,3 +1,6 @@
 export const authSelector = (state) => state.auth;
 
-export default {};
+const exporting = {
+  authSelector,
+};
+export default exporting;

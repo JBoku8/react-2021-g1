@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Example from '../example';
-import { Button } from '../ui';
+import Button from '../ui/Button';
 
 const Welcome = ({ title, startNumber }) => {
   const [counter, setCounter] = useState(startNumber);

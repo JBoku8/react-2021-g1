@@ -11,4 +11,8 @@ export const getFakerBooks = async ({ quantity = 1 }) => {
     return undefined;
   }
 };
-export default {};
+
+const exporting = {
+  getFakerBooks,
+};
+export default exporting;
