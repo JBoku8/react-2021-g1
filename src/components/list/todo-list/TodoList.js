@@ -4,11 +4,13 @@ import { TodoProvider } from '../../../providers/TodoProvider';
 
 import './todo-list.css';
 
-function TodoList(props) {
+function TodoList() {
   const { todoList } = useContext(TodoProvider);
   return (
     <div className="list-group">
-      {todoList.map((todo) => <TodoListItem todo={todo} key={todo.id} />)}
+      {todoList.map((todo) => (
+        <TodoListItem todo={todo} key={todo.id} />
+      ))}
     </div>
   );
 }

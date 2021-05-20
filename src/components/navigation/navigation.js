@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { authSelector } from '../../redux/selectors/auth-selectors';
@@ -24,43 +23,27 @@ const Navigation = () => {
           </li>
 
           <li className="nav-item">
-            <NavLink
-              to="/counter"
-              className="nav-link"
-              activeClassName="active"
-            >
+            <NavLink to="/counter" className="nav-link" activeClassName="active">
               Counter Home
             </NavLink>
           </li>
 
           {authed ? (
             <li className="nav-item">
-              <NavLink
-                to="/profile"
-                className="nav-link"
-                activeClassName="active"
-              >
+              <NavLink to="/profile" className="nav-link" activeClassName="active">
                 Profile
               </NavLink>
             </li>
           ) : null}
 
           <li className="nav-item">
-            <NavLink
-              to="/faker-books"
-              className="nav-link"
-              activeClassName="active"
-            >
+            <NavLink to="/faker-books" className="nav-link" activeClassName="active">
               Faker Books
             </NavLink>
           </li>
 
           <li className="nav-item">
-            <NavLink
-              to="/redux-counter"
-              className="nav-link"
-              activeClassName="active"
-            >
+            <NavLink to="/redux-counter" className="nav-link" activeClassName="active">
               Redux Counter
             </NavLink>
           </li>
@@ -76,11 +59,6 @@ const Navigation = () => {
       </nav>
     </header>
   );
-};
-
-Navigation.propTypes = {
-  onPageChange: PropTypes.func,
-  pages: PropTypes.object,
 };
 
 export default Navigation;
