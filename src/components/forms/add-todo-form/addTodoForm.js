@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { TodoProvider } from '../../../providers/TodoProvider';
 
-function AddTodoForm(props) {
+function AddTodoForm() {
   const { onTodoAdd } = useContext(TodoProvider);
   const [title, setTitle] = useState('');
   const [completed, setCompleted] = useState('');

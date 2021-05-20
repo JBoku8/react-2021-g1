@@ -9,8 +9,10 @@ export class API_SERVICE {
       return result;
     } catch (err) {
       console.trace(err);
+      return [];
     }
   }
+
   static getTodoList({ start = 0, limit = 10, callback }) {
     fetch(
       `${process.env.REACT_APP_API_URL}/todos?_start=${start}&_limit=${limit}&`,
@@ -21,6 +23,7 @@ export class API_SERVICE {
       })
       .catch((err) => {
         console.trace(err);
+        return [];
       });
   }
 
@@ -31,7 +34,11 @@ export class API_SERVICE {
       );
       const result = await item.json();
       console.log('[api@getTodoItemAsync]', result);
-    } catch (err) {}
+      return result;
+    } catch (err) {
+      console.trace(err);
+      return [];
+    }
   }
 }
 

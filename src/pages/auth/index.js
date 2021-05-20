@@ -1,10 +1,12 @@
-import { Link, Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import {
+  Link, Redirect, Route, Switch, useLocation,
+} from 'react-router-dom';
 import classNames from 'classnames';
 import SignInPage from './sign-in';
 import SignUpPage from './sign-up';
 import { withNoAuth } from '../../hoc';
 
-function AuthPage(props) {
+function AuthPage() {
   const location = useLocation();
 
   return (
@@ -16,14 +18,16 @@ function AuthPage(props) {
             className={classNames('nav-link', {
               active: location.pathname.includes('/sign-in'),
             })}
-            to="/auth/sign-in">
+            to="/auth/sign-in"
+          >
             Sign In
           </Link>
           <Link
             className={classNames('nav-link', {
               active: location.pathname.includes('/sign-up'),
             })}
-            to="/auth/sign-up">
+            to="/auth/sign-up"
+          >
             Sign Up
           </Link>
         </nav>

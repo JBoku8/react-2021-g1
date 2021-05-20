@@ -12,6 +12,7 @@ export const login = async (credentials) => {
     return await response.json();
   } catch (err) {
     console.trace(err);
+    return null;
   }
 };
 
@@ -21,5 +22,6 @@ export const register = async (credentials) => {
     return credentials;
   } catch (err) {
     console.trace(err);
+    return null;
   }
 };

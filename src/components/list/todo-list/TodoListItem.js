@@ -16,7 +16,8 @@ function TodoListItem({ todo }) {
       className={`list-group-item list-group-item-action list-group-item-${
         todo.completed ? 'success' : 'danger'
       }`}
-      onClick={() => onTodoChange(todo)}>
+      onClick={() => onTodoChange(todo)}
+    >
       {todo.title}
     </div>
   );

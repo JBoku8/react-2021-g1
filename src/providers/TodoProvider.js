@@ -35,7 +35,6 @@ function TodoProviderComponent({ children }) {
       ];
 
       setTodoList(newState);
-    } else {
     }
   };
 
@@ -46,7 +45,13 @@ function TodoProviderComponent({ children }) {
 
   return (
     <TodoProvider.Provider
-      value={{ todoList, setTodoList, onTodoChange, onTodoAdd }}>
+      value={{
+        todoList,
+        setTodoList,
+        onTodoChange,
+        onTodoAdd,
+      }}
+    >
       {children}
     </TodoProvider.Provider>
   );

@@ -4,5 +4,6 @@
   "trailingComma": "all",
   "arrowParens": "always",
   "bracketSpacing": true,
+  "printWidth": 100,
   "jsxBracketSameLine": true
 }

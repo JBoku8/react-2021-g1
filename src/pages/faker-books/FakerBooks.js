@@ -20,9 +20,10 @@ const bookReducer = (state, action) => {
         books: [],
       };
     case SET_FILTER:
-      const filtered = state.books.filter((item) =>
-        item.title.toLowerCase().includes(action.payload.toLowerCase()),
-      );
+      // eslint-disable-next-line no-case-declarations
+      const filtered = state.books.filter((item) => {
+        return item.title.toLowerCase().includes(action.payload.toLowerCase());
+      });
       return {
         ...state,
         filter: action.payload,
@@ -57,7 +58,7 @@ function debounce(func, timeout = 300) {
   };
 }
 
-function FakerBooks(props) {
+function FakerBooks() {
   const [state, dispatch] = useReducer(bookReducer, initialState);
 
   const loadBooks = async () => {
@@ -78,19 +79,18 @@ function FakerBooks(props) {
         type: SET_FILTER,
         payload: target.value,
       });
-    } else {
-      if (!!state.filter) {
-        dispatch({
-          type: CLEAR_FILTER,
-        });
-      }
+    } else if (state.filter) {
+      dispatch({
+        type: CLEAR_FILTER,
+      });
     }
   });
 
+  const { books } = state;
   return (
     <div className="row">
       <div className="col-12">
-        <h2>Faker Books - {state.books.length}</h2>
+        <h2>Faker Books -{books.length}</h2>
 
         <input
           className="form-control mb-2"
@@ -101,24 +101,18 @@ function FakerBooks(props) {
       </div>
 
       <div className="row border pt-3 justify-content-between">
-        {state.books.map((item) => {
-          return (
-            <div
-              key={item.isbn}
-              className="card mb-2 p-3 me-1"
-              style={{
-                maxWidth: '20rem',
-              }}>
-              <h2 className="card-title">{item.title}</h2>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="card-image-top img-fluid w-50"
-              />
-              <div className="card-body">{item.description}</div>
-            </div>
-          );
-        })}
+        {state.books.map((item) => (
+          <div
+            key={item.isbn}
+            className="card mb-2 p-3 me-1"
+            style={{
+              maxWidth: '20rem',
+            }}>
+            <h2 className="card-title">{item.title}</h2>
+            <img src={item.image} alt={item.title} className="card-image-top img-fluid w-50" />
+            <div className="card-body">{item.description}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
