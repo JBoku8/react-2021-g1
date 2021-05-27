@@ -6,15 +6,31 @@ const useFetch = (url = '', options = null) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
     setLoading(true);
 
     fetch(url, options)
       .then((response) => response.json())
-      .then((result) => {})
-      .catch((error) => {})
-      .finally(() => {
-        setLoading(false);
-      });
+      .then((result) => {
+        if (isMounted) {
+          setData(result);
+        } else {
+          console.log('useFetch result else');
+        }
+      })
+      .catch((err) => {
+        if (isMounted) {
+          setError(err);
+          setData(null);
+        } else {
+          console.log('useFetch catch else');
+        }
+      })
+      .finally(() => isMounted && setLoading(false));
+
+    return () => {
+      isMounted = false;
+    };
   }, [url, options]);
 
   return {

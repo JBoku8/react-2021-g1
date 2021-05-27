@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 
 import { setAuthUserAction } from '../../../redux/actions';
 import { login } from '../../../services';
+import { AUTH_TOKEN } from '../../../utils/constants';
 
 function SignInForm() {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function SignInForm() {
 
   const onSubmit = async (data) => {
     const loggedIn = await login(data);
-    localStorage.setItem('auth.token', JSON.stringify(loggedIn.token));
+    localStorage.setItem(AUTH_TOKEN, JSON.stringify(loggedIn.token));
     dispatch(setAuthUserAction(loggedIn.token));
     history.replace('/profile');
   };
@@ -30,10 +31,13 @@ function SignInForm() {
             className="form-control"
             id="email"
             defaultValue="eve.holt@reqres.in"
-            {...register('email', { required: true, email: true })}
+            {...register('email', {
+              required: true,
+              email: true,
+            })}
           />
           <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
+            We&apos;ll never share your email with anyone else.
           </div>
         </div>
         <div className="mb-3">
@@ -45,7 +49,9 @@ function SignInForm() {
             className="form-control"
             id="password"
             defaultValue="cityslicka"
-            {...register('password', { required: true })}
+            {...register('password', {
+              required: true,
+            })}
           />
         </div>
         <button type="submit" className="btn btn-primary">

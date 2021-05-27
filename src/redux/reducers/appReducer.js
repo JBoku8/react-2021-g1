@@ -5,6 +5,8 @@ const initialState = {
   message: 'Redux IS AWESOME.',
   error: null,
   auth: null,
+  loading: false,
+  companies: null,
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -39,6 +41,26 @@ export const appReducer = (state = initialState, action) => {
         auth: null,
       };
 
+    // companies
+    case types.GET_COMPANIES_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case types.GET_COMPANIES_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+        companies: null,
+      };
+    case types.GET_COMPANIES_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        loading: false,
+        companies: action.payload,
+      };
     default:
       return state;
   }

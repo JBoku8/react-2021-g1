@@ -1,5 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import useBackgroundColor from '../../hooks/useBackgroundColor';
+import useFetch from '../../hooks/useFetch';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { getCompaniesAsync } from '../../redux/actions';
 
 const defaultSettings = {
   notifications: 'daily',
@@ -7,11 +11,25 @@ const defaultSettings = {
 
 function Home() {
   const [value, setValue] = useState('');
+  const dispatch = useDispatch();
   const [appSettings, setAppSettings] = useLocalStorage('app-settings', defaultSettings);
+  useBackgroundColor('white');
+
+  const { loading, data, error } = useFetch(
+    `${process.env.REACT_APP_FAKER_API}/companies?_quantity=1`,
+  );
 
   return (
     <div className="row mt-4">
       <div className="col-6">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => {
+            dispatch(getCompaniesAsync());
+          }}>
+          Redux Companies
+        </button>
         <button
           className="btn btn-primary"
           type="button"
@@ -28,6 +46,11 @@ function Home() {
         </button>
         <h1>{value}</h1>
         <pre className="bg-light p-4">{JSON.stringify(appSettings)}</pre>
+      </div>
+      <div className="col-6">
+        {loading && <h3>Loading</h3>}
+        {error && <h3 className="text-danger">{JSON.stringify(error, null, 2)}</h3>}
+        {data && <pre className="bg-light p-4">{JSON.stringify(data.data, null, 2)}</pre>}
       </div>
     </div>
   );

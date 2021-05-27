@@ -40,19 +40,54 @@
       }
     ],
     "react/display-name": 1,
-    "react/state-in-constructor": "off",
-    "react/prop-types": "off",
-    "react/jsx-closing-bracket-location": [1, { "selfClosing": "after-props" }],
+    "implicit-arrow-linebreak": "off",
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
     "no-console": "off",
+    "arrow-spacing": "off",
+    "react/jsx-closing-bracket-location": [0, "tag-aligned"],
+    "react/prop-types": "off",
     "react/jsx-one-expression-per-line": [
-      1,
+      0,
       {
         "allow": "single-child"
       }
     ],
-    "implicit-arrow-linebreak": "off",
-    "arrow-body-style": "off",
-    "arrow-parens": "off",
-    "arrow-spacing": "off"
+    "react/state-in-constructor": "off",
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["CustomInputLabel"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["CustomInput"],
+        "depth": 3
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": {
+          "multiline": true
+        },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": {
+          "multiline": true,
+          "minProperties": 3
+        }
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      0,
+      {
+        "custom": "ignore"
+      }
+    ],
+    "jsx-a11y/no-static-element-interactions": [
+      0,
+      {
+        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+      }
+    ]
   }
 }

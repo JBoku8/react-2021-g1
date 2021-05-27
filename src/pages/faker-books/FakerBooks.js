@@ -62,7 +62,9 @@ function FakerBooks() {
   const [state, dispatch] = useReducer(bookReducer, initialState);
 
   const loadBooks = async () => {
-    const bookData = await getFakerBooks({ quantity: 3 });
+    const bookData = await getFakerBooks({
+      quantity: 3,
+    });
     dispatch({
       type: SET_BOOKS,
       payload: bookData,

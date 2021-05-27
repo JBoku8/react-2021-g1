@@ -10,8 +10,6 @@ import rootStore from './redux/store';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
-// console.log('REACT_APP_AUTH_URL', process.env.REACT_APP_AUTH_URL);
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

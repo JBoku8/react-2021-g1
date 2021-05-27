@@ -12,7 +12,12 @@ export const getFakerBooks = async ({ quantity = 1 }) => {
   }
 };
 
-const exporting = {
-  getFakerBooks,
+export const getFakerCompanies = async (quantity = 1) => {
+  try {
+    const response = await Axios.get(`${FakerUrl}/companies?_quantity=${quantity}`);
+    return response.data.data;
+  } catch (error) {
+    console.trace(error);
+    return undefined;
+  }
 };
-export default exporting;
