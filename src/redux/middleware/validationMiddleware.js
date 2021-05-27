@@ -1,5 +1,7 @@
+import { BLOCKED_ACTION } from '../action-types';
+
 export const validationMiddleware = (store) => (next) => (action) => {
-  if (action.type !== 'BLOCKED_ACTION') {
+  if (action.type !== BLOCKED_ACTION) {
     next(action);
   } else {
     console.group('[validationMiddleware]');

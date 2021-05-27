@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { TodoProvider } from '../../../providers/TodoProvider';
-import API_SERVICE from '../../../services/api';
+import { API_SERVICE } from '../../../services/api';
 
 function TodoListItem({ todo }) {
   const { onTodoChange } = useContext(TodoProvider);
@@ -16,8 +16,7 @@ function TodoListItem({ todo }) {
       className={`list-group-item list-group-item-action list-group-item-${
         todo.completed ? 'success' : 'danger'
       }`}
-      onClick={() => onTodoChange(todo)}
-    >
+      onKeyUp={() => onTodoChange(todo)}>
       {todo.title}
     </div>
   );
