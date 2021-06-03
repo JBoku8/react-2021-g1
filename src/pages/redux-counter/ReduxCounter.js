@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addNumberAction,
+import {
+  addNumberAction,
   resetNumberAction,
-  subtractNumberAction } from '../../redux/actions/common-actions';
+  subtractNumberAction,
+} from '../../redux/actions/counter-actions';
 import { counterSelector, messageSelector } from '../../redux/selectors';
 
 function ReduxCounter() {
@@ -14,10 +16,7 @@ function ReduxCounter() {
   return (
     <div className="row">
       <div className="col-12 mb-2">
-        <h2>
-          Redux Counter -
-          {counter}
-        </h2>
+        <h2>Redux Counter -{counter}</h2>
         <h4>{message}</h4>
       </div>
       <div className="d-grid gap-1">
@@ -26,8 +25,7 @@ function ReduxCounter() {
           type="button"
           onClick={() => {
             dispatch(addNumberAction(5));
-          }}
-        >
+          }}>
           Add Number - Action
         </button>
         <button
@@ -35,8 +33,7 @@ function ReduxCounter() {
           type="button"
           onClick={() => {
             dispatch(subtractNumberAction(5));
-          }}
-        >
+          }}>
           Subtract Number - Action
         </button>
         <button
@@ -44,8 +41,7 @@ function ReduxCounter() {
           type="button"
           onClick={() => {
             dispatch(resetNumberAction());
-          }}
-        >
+          }}>
           Reset Number - Action
         </button>
 
@@ -57,8 +53,7 @@ function ReduxCounter() {
               type: 'BLOCKED_ACTION',
               payload: 10,
             });
-          }}
-        >
+          }}>
           Blocked - Action
         </button>
       </div>
