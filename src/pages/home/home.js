@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import ParentComponent from '../../components/perf-optimization/ParentComponent';
+import Welcome from '../../components/welcome/Welcome';
 import useBackgroundColor from '../../hooks/useBackgroundColor';
 import useFetch from '../../hooks/useFetch';
 import useLocalStorage from '../../hooks/useLocalStorage';
@@ -21,6 +23,12 @@ function Home() {
 
   return (
     <div className="row mt-4">
+      <div className="col-12 my-4">
+        <ParentComponent />
+      </div>
+      <div className="col-12 my-4">
+        <Welcome title="Testing title" startNumber={0} />
+      </div>
       <div className="col-6">
         <button
           type="button"
