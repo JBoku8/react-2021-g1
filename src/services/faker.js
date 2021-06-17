@@ -21,3 +21,10 @@ export const getFakerCompanies = async (quantity = 1) => {
     return undefined;
   }
 };
+
+export const getTodoItemsAsync = async (start = 0, limit = 5) => {
+  const res = await Axios.get(
+    `${process.env.REACT_APP_API_URL}/todos?_start=${start}&_limit=${limit}&`,
+  );
+  return res.data;
+};
