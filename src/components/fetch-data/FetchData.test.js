@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { act, render } from '@testing-library/react';
+// import { act, render } from '@testing-library/react';
 import { getTodoItemsAsync } from '../../services';
-import { TEST_IDS } from '../../utils/testids';
+// import { TEST_IDS } from '../../utils/testids';
 
-import FetchData from './FetchData';
+// import FetchData from './FetchData';
 
 jest.mock('axios');
 
