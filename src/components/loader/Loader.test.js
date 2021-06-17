@@ -9,3 +9,10 @@ describe('Loader component testing', () => {
     expect(loaderTitleElement).toBeInTheDocument();
   });
 });
+
+describe('Loader snapshots', () => {
+  test('renders successfully', () => {
+    const component = render(<Loader />);
+    expect(component).toMatchSnapshot();
+  });
+});

@@ -8,4 +8,7 @@ export const TEST_IDS = {
     addButton: 'welcome.addButton',
     minusButton: 'welcome.minusButton',
   },
+  fetchData: {
+    title: 'fetchData.title',
+  },
 };

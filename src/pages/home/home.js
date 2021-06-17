@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import FetchData from '../../components/fetch-data/FetchData';
 import ParentComponent from '../../components/perf-optimization/ParentComponent';
 import Welcome from '../../components/welcome/Welcome';
 import useBackgroundColor from '../../hooks/useBackgroundColor';
@@ -23,6 +24,10 @@ function Home() {
 
   return (
     <div className="row mt-4">
+      <div className="col-12 my-4 shadow">
+        <FetchData />
+      </div>
+
       <div className="col-12 my-4">
         <ParentComponent />
       </div>

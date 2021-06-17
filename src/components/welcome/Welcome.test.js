@@ -47,3 +47,10 @@ describe('Welcome component testing', () => {
     expect(message).toHaveTextContent(mockProps.startNumber);
   });
 });
+
+describe('Welcome snapshot testing', () => {
+  test('welcome renders as expected', () => {
+    const component = render(<Welcome {...mockProps} />);
+    expect(component).toMatchSnapshot();
+  });
+});
